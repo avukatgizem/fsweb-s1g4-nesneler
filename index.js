@@ -15,9 +15,15 @@ const serpmeKahvalti = {isim: "Serpme Kahvaltı", fiyat: 16, kategori:"Kahvaltı
 */
 
 
-function MenuElemaniOlustur(/*Kodlar buraya*/){
-	/*Kodlar buraya*/
-}
+function MenuElemaniOlustur(isim, fiyat, kategori)
+	return {
+	isim: isim,
+	fiyat: fiyat,
+	kategori: kategori
+	};
+	const meyveSuyu = MenuElemaniOlustur('Meyve Suyu', 6, 'İçecekler');
+console.log(meyveSuyu);
+
 
 
 
@@ -30,7 +36,14 @@ function MenuElemaniOlustur(/*Kodlar buraya*/){
 	
 	Örnek: MenuElemaniOlustur("Karışık Pizza",5,"Pizzalar") şunu döndürür: {isim:"Karışık Pizza",fiyat:5,kategori:"Pizzalar"}
 */
+const tavukSis = MenuElemaniOlustur('Tavuk Şiş', 15, 'Izgara');
+console.log(tavukSis); // {isim: 'Tavuk Şiş', fiyat: 15, kategori: 'Izgara'}
 
+const beytiKebap = MenuElemaniOlustur('Beyti Kebap', 18, 'Kebaplar');
+console.log(beytiKebap); // {isim: 'Beyti Kebap', fiyat: 18, kategori: 'Kebaplar'}
+
+const kuruFasulye = MenuElemaniOlustur('Kuru Fasulye', 12, 'Yemekler');
+console.log(kuruFasulye); // {isim: 'Kuru Fasulye', fiyat: 12, kategori: 'Yemekler'}
 
 
 /* Görev 2: 
@@ -71,7 +84,7 @@ const degerlendirmeler = [
 	Yukarıdaki degerlendirmeler dizisini(array) kullanarak:
 	1. Sadece Ahmet'in geribildirimini konsolda görüntüleyin - fonksiyona gerek yok
 */
-
+console.log(degerlendirmeler.find(degerlendirme => degerlendirme.isim === "Nalan").geribildirim);
 
 
 /*  Görev 4 (ototest yok):  
@@ -80,7 +93,8 @@ const degerlendirmeler = [
 	2. degerlendirmeler dizisini konsolda görüntüleyerek çalışmanızı kontrol edin
 */
 
-
+degerlendirmeler.find(degerlendirme => degerlendirme.isim === "Reyna").geribildirim = "bu mekan bir harika dostum, yine de garsonun gülümsememesinden puan kırdım";
+console.log(degerlendirmeler)
 
 /*  Görev 5: 
 	isim, puan, geribildirim'i içeren bir değerlendirme nesnesi oluşturup, yeni değerlendirmeyi mevcut dizinin(array) sonuna ekleyip sonuç dizisini döndüren bir fonksiyon tanımlayın. 
@@ -131,11 +145,12 @@ function AnahtardanDegerlendirmeAl(/*Kodlar buraya*/) {
 	Not: Eğer 4. görevi başarıyla yaptıysanız kişinin geribildirimi boş görünmemeli
 */
 
-
-function SonDegerlendirmeyiAl(/*Kodlar buraya*/) {
-	/*Kodlar buraya*/
-} 
-
+function SonDegerlendirmeyiAl(dizi) {
+	const sonDegerlendirme = dizi[dizi.length - 1];
+	return `${sonDegerlendirme.isim} isimli kişi ${sonDegerlendirme.puan} puan verdi ve şunları yazdı: ${sonDegerlendirme.geribildirim}`;
+  }
+  console.log(SonDegerlendirmeyiAl(degerlendirmeler));
+  
 
 
 /////////////// BONUS  GÖRVLER////////////////////
